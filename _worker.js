@@ -823,18 +823,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `Ali😉 - Domain_${index + 1} : ${port}`;
+            remark = `💦 BPB - Domain_${index + 1} : ${port}`;
             break;
         case 2:
         case 3:
-            remark = `Ali😉 - IPv4_${index - 1} : ${port}`;
+            remark = `💦 BPB - IPv4_${index - 1} : ${port}`;
             break;
         case 4:
         case 5:
-            remark = `Ali😉 - IPv6_${index - 3} : ${port}`;
+            remark = `💦 BPB - IPv6_${index - 3} : ${port}`;
             break;
         default:
-            remark = `Ali😉 - Clean IP_${index - 5} : ${port}`;
+            remark = `💦 BPB - Clean IP_${index - 5} : ${port}`;
             break;
     }
 
@@ -966,7 +966,7 @@ const buildWorkerLessConfig = async (env, client) => {
     fakeOutbound.tag = 'fake-outbound';
 
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = 'Ali😉 Frag - WorkerLess ⭐'
+    fragConfig.remarks  = '💦 BPB Frag - WorkerLess ⭐'
     fragConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -1108,7 +1108,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     };
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = 'Ali😉 Frag - Best Ping 💥';
+    bestPing.remarks = '💦 BPB Frag - Best Ping 💥';
     bestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -1129,7 +1129,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     }
 
     let bestFragment = structuredClone(xrayConfigTemp);
-    bestFragment.remarks = 'Ali😉 Frag - Best Fragment 😎';
+    bestFragment.remarks = '💦 BPB Frag - Best Fragment 😎';
     bestFragment.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
@@ -1304,7 +1304,7 @@ const getWoWConfig = async (env, client) => {
         singboxOutbounds.push(singboxOutbound);
     }
 
-    wowConfigXray.remarks = 'Ali😉 - Warp on Warp 🚀';
+    wowConfigXray.remarks = '💦 BPB - Warp on Warp 🚀';
     wowConfigXray.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     wowConfigXray.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, false);
     wowConfigXray.outbounds.splice(0,1);
@@ -1315,7 +1315,7 @@ const getWoWConfig = async (env, client) => {
     let warpConfigXray = structuredClone(wowConfigXray);
     warpConfigXray.outbounds.splice(0,1);
     warpConfigXray.routing.rules[warpConfigXray.routing.rules.length - 1].outboundTag = 'warp-ir';
-    warpConfigXray.remarks = 'Ali😉 - Warp';
+    warpConfigXray.remarks = '💦 BPB - Warp';
 
     wowConfigSingbox.dns.servers[0].address = remoteDNS;
     wowConfigSingbox.dns.servers[1].address = localDNS;
