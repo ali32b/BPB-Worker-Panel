@@ -6,7 +6,7 @@ import { SignJWT, jwtVerify } from 'jose';
 
 // How to generate your own UUID:
 // https://www.uuidgenerator.net/
-let userID = '89b3cbba-e6ac-485a-9481-976a0415eab9';
+let userID = 'd945412d-1cab-4a42-996c-60b4c94fa635';
 let trojanPassword = `bpb-trojan`;
 
 // https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
@@ -1129,7 +1129,7 @@ function generateRemark(index, port, address, cleanIPs, protocol, configType) {
         ? addressType = 'Clean IP'
         : addressType = isDomain(address) ? 'Domain': isIPv4(address) ? 'IPv4' : isIPv6(address) ? 'IPv6' : '';
 
-    return `💦 ${index} - ${protocol}${type} - ${addressType} : ${port}`;
+    return `Ali😉 ${index} - ${protocol}${type} - ${addressType} : ${port}`;
 }
 
 function isDomain(address) {
@@ -1737,7 +1737,7 @@ function renderHomePage (proxySettings, hostName, isPassSet) {
         </style>
     </head>
     <body>
-        <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+        <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> Ali😉</h1>
         <div class="form-container">
             <form id="configForm">
                 <details open>
@@ -2939,7 +2939,7 @@ function renderLoginPage () {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> Ali😉</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -3022,7 +3022,7 @@ function renderErrorPage (message, error, refer) {
     </head>
     <body>
         <div id="error-container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> Ali😉</h1>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
@@ -3140,7 +3140,7 @@ async function buildWarpOutbounds (client, proxySettings, warpConfigs) {
 
         if (client === 'singbox' || client === 'hiddify') {
             let singboxOutbound = buildSingBoxWarpOutbound(
-                client === 'hiddify' ? `💦 Warp Pro ${index + 1} 🇮🇷` : `💦 Warp ${index + 1} 🇮🇷`, 
+                client === 'hiddify' ? `Ali😉 Warp Pro ${index + 1} 🇮🇷` : `Ali😉 Warp ${index + 1} 🇮🇷`, 
                 warpIPv6, 
                 privateKey, 
                 publicKey, 
@@ -3160,7 +3160,7 @@ async function buildWarpOutbounds (client, proxySettings, warpConfigs) {
         }
 
         if (client === 'clash') {
-            let clashOutbound = buildClashWarpOutbound(`💦 Warp ${index + 1} 🇮🇷`, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
+            let clashOutbound = buildClashWarpOutbound(`Ali😉 Warp ${index + 1} 🇮🇷`, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
             warpOutbounds.push(clashOutbound);
         }
 
@@ -3220,8 +3220,8 @@ async function buildWoWOutbounds (client, proxySettings, warpConfigs) {
                     i === 1
                         ? `proxy-${index + 1}` 
                         : client === 'hiddify' 
-                            ? `💦 WoW Pro ${index + 1} 🌍` 
-                            : `💦 WoW ${index + 1} 🌍` , 
+                            ? `Ali😉 WoW Pro ${index + 1} 🌍` 
+                            : `Ali😉 WoW ${index + 1} 🌍` , 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -3242,7 +3242,7 @@ async function buildWoWOutbounds (client, proxySettings, warpConfigs) {
 
             if (client === 'clash') {
                 let clashOutbound = buildClashWarpOutbound(
-                    i === 1 ? `proxy-${index + 1}` : `💦 WoW ${index + 1} 🌍`, 
+                    i === 1 ? `proxy-${index + 1}` : `Ali😉 WoW ${index + 1} 🌍`, 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -3704,7 +3704,7 @@ async function buildXrayWorkerLessConfig(proxySettings) {
     let config = structuredClone(xrayConfigTemp);
     config.dns = await buildXrayDNS(proxySettings, true);
     config.routing.rules = buildXrayRoutingRules(proxySettings, false, false, true, false);
-    config.remarks  = '💦 BPB F - WorkerLess ⭐'
+    config.remarks  = 'Ali😉 F - WorkerLess ⭐'
     const fragmentSettings = config.outbounds[0].settings;
     fragmentSettings.domainStrategy = 'UseIP';
     fragmentSettings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -3849,7 +3849,7 @@ async function getXrayCustomConfigs(env, proxySettings, hostName, isFragment) {
     });
     
     let bestPing = structuredClone(balancerConfig);
-    bestPing.remarks = isFragment ? '💦 BPB F - Best Ping 💥' : '💦 BPB - Best Ping 💥';
+    bestPing.remarks = isFragment ? 'Ali😉 F - Best Ping 💥' : 'Ali😉 - Best Ping 💥';
     bestPing.outbounds.unshift(...outbounds);
     
     if (chainProxy) {
@@ -3861,7 +3861,7 @@ async function getXrayCustomConfigs(env, proxySettings, hostName, isFragment) {
     if (!isFragment) return [...configs, bestPing];
 
     let bestFragment = structuredClone(balancerConfig);
-    bestFragment.remarks = '💦 BPB F - Best Fragment 😎';
+    bestFragment.remarks = 'Ali😉 F - Best Fragment 😎';
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
         bestFragment.outbounds.push({
@@ -3921,7 +3921,7 @@ async function getXrayWarpConfigs (proxySettings, warpConfigs, client) {
     config.routing.rules = buildXrayRoutingRules(proxySettings, false, false, false, true);
     xrayWarpBestPing.routing.rules = buildXrayRoutingRules(proxySettings, false, true, false, true);
     const proIndicator = client === 'nikang' ? ' Pro ' : ' ';
-    xrayWarpBestPing.remarks = `💦 Warp${proIndicator}Best Ping 🚀`;
+    xrayWarpBestPing.remarks = `Ali😉 Warp${proIndicator}Best Ping 🚀`;
     xrayWarpBestPing.observatory.probeInterval = `${bestWarpInterval}s`;
     const xrayWarpOutbounds = await buildWarpOutbounds(client, proxySettings, warpConfigs);
     const xrayWoWOutbounds = await buildWoWOutbounds(client, proxySettings, warpConfigs);
@@ -3929,7 +3929,7 @@ async function getXrayWarpConfigs (proxySettings, warpConfigs, client) {
     xrayWarpOutbounds.forEach((outbound, index) => {
         xrayWarpConfigs.push({
             ...config,
-            remarks: `💦 Warp${proIndicator}${index + 1} 🇮🇷`,
+            remarks: `Ali😉 Warp${proIndicator}${index + 1} 🇮🇷`,
             outbounds: [{...outbound, tag: 'proxy'}, ...config.outbounds]
         });
     });
@@ -3940,7 +3940,7 @@ async function getXrayWarpConfigs (proxySettings, warpConfigs, client) {
             let xrayWoWConfig = structuredClone(config);
             const chainOutbound = structuredClone(outbound);
             const proxyOutbound = structuredClone(xrayWoWOutbounds[index + 1]);
-            xrayWoWConfig.remarks = `💦 WoW${proIndicator}${proxyIndex} 🌍`;
+            xrayWoWConfig.remarks = `Ali😉 WoW${proIndicator}${proxyIndex} 🌍`;
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = 'chain';
             xrayWoWConfig.outbounds.unshift(chainOutbound, proxyOutbound);
             xrayWarpConfigs.push(xrayWoWConfig);
@@ -3953,7 +3953,7 @@ async function getXrayWarpConfigs (proxySettings, warpConfigs, client) {
     });
 
     let xrayWoWBestPing = structuredClone(xrayWarpBestPing);
-    xrayWoWBestPing.remarks = `💦 WoW${proIndicator}Best Ping 🚀`;
+    xrayWoWBestPing.remarks = `Ali😉 WoW${proIndicator}Best Ping 🚀`;
     xrayWoWBestPing.routing.balancers[0].selector = ['chain'];
     xrayWoWBestPing.observatory.subjectSelector = ['chain'];
     xrayWarpBestPing.outbounds.unshift(...xrayWarpOutbounds);
@@ -4133,7 +4133,7 @@ function buildClashChainOutbound(chainProxyParams) {
 
     const { hostName, port, uuid, flow, security, type, sni, fp, alpn, pbk, sid, spx, headerType, host, path, authority, serviceName, mode } = chainProxyParams;
     let chainOutbound = {
-        "name": "💦 Chain Best Ping 💥",
+        "name": "Ali😉 Chain Best Ping 💥",
         "type": "vless",
         "server": hostName,
         "port": +port,
@@ -4141,7 +4141,7 @@ function buildClashChainOutbound(chainProxyParams) {
         "uuid": uuid,
         "flow": flow,
         "network": type,
-        "dialer-proxy": "💦 Best Ping 💥"
+        "dialer-proxy": "Ali😉 Best Ping 💥"
     };
 
     if (security === 'tls') {
@@ -4202,12 +4202,12 @@ async function getClashWarpConfig(proxySettings, warpConfigs) {
     config.rules = buildClashRoutingRules(proxySettings, true);
     const selector = config['proxy-groups'][0];
     const warpUrlTest = config['proxy-groups'][1];
-    selector.proxies = ['💦 Warp Best Ping 🚀', '💦 WoW Best Ping 🚀'];
-    warpUrlTest.name = '💦 Warp Best Ping 🚀';
+    selector.proxies = ['Ali😉 Warp Best Ping 🚀', 'Ali😉 WoW Best Ping 🚀'];
+    warpUrlTest.name = 'Ali😉 Warp Best Ping 🚀';
     warpUrlTest.interval = +proxySettings.bestWarpInterval;
     config['proxy-groups'].push(structuredClone(warpUrlTest));
     const WoWUrlTest = config['proxy-groups'][2];
-    WoWUrlTest.name = '💦 WoW Best Ping 🚀';
+    WoWUrlTest.name = 'Ali😉 WoW Best Ping 🚀';
     const clashWarpOutbounds = await buildWarpOutbounds('clash', proxySettings, warpConfigs);
     const clashWOWpOutbounds = await buildWoWOutbounds('clash', proxySettings, warpConfigs);
     config.proxies = [...clashWarpOutbounds, ...clashWOWpOutbounds];
@@ -4263,8 +4263,8 @@ async function getClashNormalConfig (env, proxySettings, hostName) {
     config.rules = buildClashRoutingRules(proxySettings, false);
     const selector = config['proxy-groups'][0];
     const urlTest = config['proxy-groups'][1];
-    selector.proxies = ['💦 Best Ping 💥'];
-    urlTest.name = '💦 Best Ping 💥';
+    selector.proxies = ['Ali😉 Best Ping 💥'];
+    urlTest.name = 'Ali😉 Best Ping 💥';
     urlTest.interval = +bestVLESSTrojanInterval;
     const Addresses = await getConfigAddresses(hostName, cleanIPs, enableIPv6);
     const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
@@ -4804,11 +4804,11 @@ async function getSingBoxWarpConfig(proxySettings, warpConfigs, client) {
     const warpOutbounds = await buildWarpOutbounds(client, proxySettings, warpConfigs);
     const WOWOutbounds = await buildWoWOutbounds(client, proxySettings, warpConfigs);
     const proIndicator = client === 'hiddify' ? ' Pro ' : ' ';
-    selector.outbounds = [`💦 Warp${proIndicator}Best Ping 🚀`, `💦 WoW${proIndicator}Best Ping 🚀`];
+    selector.outbounds = [`Ali😉 Warp${proIndicator}Best Ping 🚀`, `Ali😉 WoW${proIndicator}Best Ping 🚀`];
     config.outbounds.splice(2, 0, structuredClone(warpUrlTest));
     const WoWUrlTest = config.outbounds[2];
-    warpUrlTest.tag = `💦 Warp${proIndicator}Best Ping 🚀`;
-    WoWUrlTest.tag = `💦 WoW${proIndicator}Best Ping 🚀`;
+    warpUrlTest.tag = `Ali😉 Warp${proIndicator}Best Ping 🚀`;
+    WoWUrlTest.tag = `Ali😉 WoW${proIndicator}Best Ping 🚀`;
     config.outbounds.push(...warpOutbounds, ...WOWOutbounds);
 
     warpOutbounds.forEach(outbound => {
@@ -4870,9 +4870,9 @@ async function getSingBoxCustomConfig(env, proxySettings, hostName, client, isFr
     config.route.rule_set = rule_set;
     const selector = config.outbounds[0];
     const urlTest = config.outbounds[1];
-    selector.outbounds = ['💦 Best Ping 💥'];
+    selector.outbounds = ['Ali😉 Best Ping 💥'];
     urlTest.interval = `${bestVLESSTrojanInterval}s`;
-    urlTest.tag = '💦 Best Ping 💥';
+    urlTest.tag = 'Ali😉 Best Ping 💥';
     const Addresses = await getConfigAddresses(hostName, cleanIPs, enableIPv6);
     const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
     const totalAddresses = [...Addresses, ...customCdnAddresses];
@@ -4981,7 +4981,7 @@ async function getNormalConfigs(proxySettings, hostName, client) {
     });
 
     if (outProxy) {
-        let chainRemark = `#${encodeURIComponent('💦 Chain proxy 🔗')}`;
+        let chainRemark = `#${encodeURIComponent('Ali😉 Chain proxy 🔗')}`;
         if (outProxy.startsWith('socks') || outProxy.startsWith('http')) {
             const regex = /^(?:socks|http):\/\/([^@]+)@/;
             const isUserPass = outProxy.match(regex);
